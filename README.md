@@ -1,27 +1,21 @@
-# password-generator
-This code will generates 200 passwords for the 200 users with uppercase,lowercase,numbers and special characters in it and the length of the password is of 8
-import random
-import string
+The code generates a list of random strings with a length of 8 characters. Each string contains at least one lowercase letter, one uppercase letter, one digit, and one punctuation mark. The code continues generating strings until it collects a total of 200 strings that meet these criteria.
 
-x = string.ascii_uppercase+string.ascii_lowercase+string.digits+string.punctuation
+Here's a breakdown of the code:
 
-lst = []
-
-while len(lst) < 200:
-    rand_val = random.choices(x, k=8)
-    lc = 0;uc = 0;dc = 0;pc = 0
-    for k in rand_val:
-        if k.isupper() == True:
-            uc = 1
-        elif k.islower() == True:
-            lc = 1
-        elif k.isdigit() == True:
-            dc = 1
-        else:
-            pc = 1
-    if lc == 1 and uc ==1 and dc == 1 and pc == 1:
-        lst.append("".join(rand_val))
-    
-    
-print(lst)
-print(len(lst))
+Import the necessary libraries: random and string.
+Create a string x that includes all uppercase letters, lowercase letters, digits, and punctuation marks.
+Create an empty list lst to store the generated strings.
+Enter a while loop that continues until the length of lst reaches 200.
+Generate a random string of length 8 using random.choices() and store it in rand_val.
+Initialize variables lc, uc, dc, and pc to keep track of the presence of lowercase letters, uppercase letters, digits, and punctuation marks, respectively. Set them to 0 initially.
+Iterate over each character k in rand_val.
+Use if statements to check the type of each character and update the corresponding variables (lc, uc, dc, pc) accordingly.
+If k is an uppercase letter, set uc to 1.
+If k is a lowercase letter, set lc to 1.
+If k is a digit, set dc to 1.
+If k is a punctuation mark, set pc to 1.
+After iterating through all characters, check if each variable (lc, uc, dc, pc) is equal to 1. If so, it means the string contains at least one of each required character type.
+If the conditions are met, join the characters in rand_val to form a string and append it to lst.
+Once lst reaches a length of 200, exit the while loop.
+Print the contents of lst.
+Print the length of lst.
